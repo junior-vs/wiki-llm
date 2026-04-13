@@ -1,0 +1,18 @@
+[importlinter]
+root_package = wiki
+
+[importlinter:contract:domain-is-pure]
+name = Domain layer must not import adapters or I/O libraries
+type = forbidden
+source_modules = wiki.domain
+forbidden_modules =
+    wiki.adapters
+    httpx
+    yaml
+
+[importlinter:contract:application-no-adapters]
+name = Application layer must not import adapters
+type = forbidden
+source_modules = wiki.application
+forbidden_modules =
+    wiki.adapters
